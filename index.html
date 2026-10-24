@@ -1,488 +1,733 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Caesar 🌿</title>
 
-    <meta name="description" content="Portofolio mahasiswa Informatika konsentrasi Website angkatan 2024, Universitas Cokroaminoto Palopo.">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    <title>Portofolio Mahasiswa | Informatika 2024</title>
+:root {
+    --botol: #103b2d;
+    --hijau: #286749;
+    --sage: #a8c3a0;
+    --muda: #e5eee2;
+    --krem: #faf9f0;
+    --teks: #293d32;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: var(--krem);
+    color: var(--teks);
+    line-height: 1.8;
+}
 
-    <link rel="stylesheet" href="style.css">
+a {
+    text-decoration: none;
+}
+
+header {
+    background: var(--botol);
+    padding: 15px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--sage);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--sage);
+}
+
+/* HIASAN */
+.sticker {
+    display: inline-block;
+    font-size: 27px;
+    animation: goyang 3s ease-in-out infinite;
+}
+
+@keyframes goyang {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(8deg); }
+}
+
+section {
+    padding: 65px 9%;
+    scroll-margin-top: 20px;
+}
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 65px 9%;
+    flex-wrap: wrap;
+    background:
+        radial-gradient(circle at 10% 20%, #d1e4c8, transparent 25%),
+        linear-gradient(135deg, #faf9f0, #e0ecd9);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "🍃  ✿  🦋";
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 25px;
+    opacity: 0.7;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.tag {
+    display: inline-block;
+    background: #d0e1cc;
+    color: var(--botol);
+    padding: 6px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    color: var(--botol);
+    font-size: clamp(38px, 5vw, 55px);
+    line-height: 1.25;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: #56835e;
+}
+
+.hero p {
+    max-width: 530px;
+    color: #5d7063;
+    margin-bottom: 25px;
+}
+
+.button {
+    display: inline-block;
+    background: var(--hijau);
+    color: white;
+    padding: 11px 23px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: var(--botol);
+    transform: translateY(-4px);
+}
+
+/* FOTO */
+.profile {
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 8px solid white;
+    overflow: hidden;
+    background: linear-gradient(145deg, #789b79, #184d38);
+    box-shadow: 0 12px 35px #103b2d30;
+    position: relative;
+}
+
+.profile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #66886b;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* JUDUL BAGIAN */
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title small {
+    color: #66886b;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    color: var(--botol);
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.section-title p {
+    color: #718078;
+    font-size: 14px;
+}
+
+/* ABOUT ME */
+.about {
+    background: #fff;
+    border: 1px solid #e0e8dc;
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 8px 25px #103b2d09;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about-art {
+    background: linear-gradient(145deg, #103b2d, #56835e);
+    color: white;
+    padding: 30px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 270px;
+}
+
+.about-art .big-icon {
+    font-size: 70px;
+}
+
+.about-art h3 {
+    color: #d5e5cf;
+    margin: 10px 0;
+}
+
+.about-art p {
+    font-size: 14px;
+    color: #e5eee2;
+}
+
+.about h3 {
+    color: var(--botol);
+    margin-bottom: 12px;
+}
+
+.about p {
+    color: #66766b;
+    margin-bottom: 12px;
+}
+
+.about strong {
+    color: var(--hijau);
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.pill {
+    background: var(--muda);
+    color: var(--hijau);
+    padding: 7px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+/* MINAT */
+.interests {
+    background: #f0f4e9;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dce6d7;
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px #184d3815;
+}
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: var(--muda);
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--hijau);
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #718078;
+    font-size: 14px;
+}
+
+.card .decoration {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    font-size: 23px;
+}
+
+/* FAVORIT */
+.favorites {
+    padding-top: 35px;
+}
+
+.favorite-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.favorite-item {
+    background: white;
+    border: 1px solid #e0e8dc;
+    border-radius: 18px;
+    padding: 15px 22px;
+    text-align: center;
+    min-width: 125px;
+}
+
+.favorite-item div {
+    font-size: 32px;
+}
+
+.favorite-item p {
+    font-size: 13px;
+    color: var(--hijau);
+}
+
+/* TUJUAN */
+.goals {
+    background: var(--botol);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.goals .section-title h2 {
+    color: white;
+}
+
+.goals .section-title p {
+    color: #d5e5cf;
+}
+
+.goal-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    background: #ffffff10;
+    border: 1px solid #ffffff35;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.goal-box .goal-icon {
+    font-size: 48px;
+}
+
+.goal-box h3 {
+    color: var(--sage);
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.goal-box p {
+    color: #e0eadd;
+}
+
+/* KONTAK */
+.contact {
+    text-align: center;
+    background:
+        radial-gradient(circle at 10% 80%, #dcebd3, transparent 25%),
+        var(--krem);
+}
+
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.contact-item {
+    background: white;
+    border: 1px solid #dce6d7;
+    border-radius: 15px;
+    padding: 15px 22px;
+    color: var(--hijau);
+}
+
+.contact-item span {
+    font-size: 23px;
+    margin-right: 8px;
+}
+
+footer {
+    background: var(--botol);
+    color: #d8e5d7;
+    padding: 22px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--sage);
+}
+
+/* HP */
+@media (max-width: 750px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 7%;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile {
+        width: 210px;
+        height: 210px;
+    }
+
+    section {
+        padding: 48px 7%;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+    .about {
+        padding: 22px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- NAVIGASI -->
-    <header class="navbar">
-        <div class="container nav-content">
-            <a href="#beranda" class="logo">
-                <span class="logo-icon">P.</span>
-                <span>MyPortfolio<span class="dot">.</span></span>
-            </a>
+<!-- NAVIGASI -->
+<header>
+    <div class="logo">Caesar<span>. 🌿</span></div>
+    <nav>
+        <a href="#home">🏡 Beranda</a>
+        <a href="#about">🍃 Tentang</a>
+        <a href="#skills">💻 Keahlian</a>
+        <a href="#goals">🌳 Tujuan</a>
+        <a href="#contact">💌 Kontak</a>
+    </nav>
+</header>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="#beranda">Beranda</a>
-                <a href="#tentang">Tentang Saya</a>
-                <a href="#biodata">Biodata</a>
-                <a href="#keahlian">Minat</a>
-                <a href="#kontak" class="nav-button">Hubungi Saya ↗</a>
-            </nav>
+<!-- BERANDA -->
+<section class="hero" id="home">
+    <div class="hero-text">
+        <span class="tag">🌱 Welcome to My Portfolio ✨</span>
+        <h1>Hai, aku <span>Caesar!</span> 🍀</h1>
 
-            <button class="menu-toggle" id="menuToggle"
-                    aria-label="Buka menu navigasi"
-                    aria-expanded="false"
-                    aria-controls="navLinks">
-                ☰
-            </button>
+        <p>
+            Mahasiswa Teknik Informatika yang suka belajar tentang
+            teknologi, pemrograman, dan pembuatan website.
+            Aku percaya bahwa seperti alam, proses belajar juga
+            butuh waktu untuk tumbuh dan berkembang. 🌻
+        </p>
+
+        <a href="#about" class="button">Kenalan Yuk! 💚 →</a>
+    </div>
+
+    <div>
+        <div class="profile">
+            <!-- Letakkan foto.jpg satu folder dengan index.html -->
+            <img src="WhatsApp Image 2026-10-24 at 09.33.38.jpeg" alt="Foto Caesar">
         </div>
-    </header>
-
-    <main>
-
-        <!-- HERO -->
-        <section class="hero" id="beranda">
-            <div class="container hero-grid">
-
-                <div class="hero-text">
-                    <span class="eyebrow">
-                        ✦ PERSONAL STUDENT PORTFOLIO
-                    </span>
-
-                    <p class="welcome">Halo, selamat datang!</p>
-
-                    <h1>
-                        Mengenal Saya,<br>
-                        <span>Calon Web Developer.</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Saya mahasiswa Program Studi Informatika,
-                        konsentrasi Website, angkatan 2024 di
-                        Universitas Cokroaminoto Palopo.
-                        Saya terus belajar, berkreasi, dan
-                        mengembangkan kemampuan di dunia teknologi.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#tentang" class="btn btn-primary">
-                            Kenali Saya <span>↗</span>
-                        </a>
-
-                        <a href="#biodata" class="btn btn-secondary">
-                            Lihat Biodata
-                        </a>
-                    </div>
-
-                    <div class="hero-note">
-                        <span class="status-dot"></span>
-                        Mahasiswa Informatika · Angkatan 2024
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="photo-decoration"></div>
-
-                    <div class="photo-card">
-                        <div class="photo-frame">
-                            <img src="foto-profil.jpg"  
-                                 alt="Foto profil mahasiswa"
-                                 onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';">
-
-                            <div class="photo-fallback" id="photoFallback">
-                                <span>✿</span>
-                                <p>Foto Profil Kamu</p>
-                                <small><img src="2.jpg" width="100px"></small>
-                            </div>
-
-                            <span class="photo-badge">
-                                ✦ Informatika 2024
-                            </span>
-                        </div>
-
-                        <div class="photo-caption">
-                            <div>
-                                <p class="caption-small">STUDENT PORTFOLIO</p>
-                                <h3>Website Hosting</h3>
-                            </div>
-                            <span class="caption-heart">♡</span>
-                        </div>
-                    </div>
-
-                  
-                </div>
-
-            </div>
-        </section>
-
-        <!-- TENTANG SAYA -->
-        <section class="section about-section" id="tentang">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">ABOUT ME</span>
-                    <h2>Tentang <span>Saya</span></h2>
-                    <p>Perjalanan kecil menuju masa depan yang besar.</p>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-quote">
-                        <span class="quote-mark">“</span>
-
-                        <h3>Terus belajar dan jangan takut mencoba hal baru.</h3>
-
-                        <p>
-                            Setiap proses adalah kesempatan untuk
-                            bertumbuh dan menjadi lebih baik.
-                        </p>
-
-                        <div class="quote-line"></div>
-                        <span class="quote-label">MY PERSONAL MOTTO</span>
-                    </div>
-
-                    <div class="about-content">
-                        <h3>Halo, senang bertemu denganmu!</h3>
-
-                        <p>
-                            Saya adalah mahasiswa Universitas
-                            Cokroaminoto Palopo, Program Studi
-                            Informatika dengan konsentrasi Website,
-                            angkatan 2024.
-                        </p>
-
-                        <p>
-                            Saya memiliki ketertarikan pada dunia
-                            website, teknologi digital, dan pembuatan
-                            halaman web. Melalui proses perkuliahan,
-                            saya ingin memahami bagaimana website
-                            dirancang, dibangun, dan dipublikasikan
-                            agar dapat digunakan dengan mudah.
-                        </p>
-
-                        <p>
-                            Di luar kegiatan belajar, saya memiliki
-                            hobi makan dan menikmati berbagai macam
-                            makanan. Bagi saya, belajar dan menikmati
-                            hal-hal sederhana adalah bagian dari
-                            perjalanan hidup yang menyenangkan.
-                        </p>
-
-                        <a href="#biodata" class="text-link">
-                            Kenali biodata saya <span>→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BIODATA -->
-        <section class="section biodata-section" id="biodata">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">PERSONAL INFORMATION</span>
-                    <h2>Biodata <span>Mahasiswa</span></h2>
-                    <p>Informasi singkat mengenai identitas dan pendidikan saya.</p>
-                </div>
-
-                <div class="biodata-card">
-                    <div class="biodata-header">
-                        <div class="biodata-avatar">✿</div>
-                        <div>
-                            <span class="biodata-label">STUDENT PROFILE</span>
-                            <h3>Profil Akademik</h3>
-                            <p>Universitas Cokroaminoto Palopo</p>
-                        </div>
-                    </div>
-
-                    <div class="biodata-list">
-                        <div class="biodata-row">
-                            <span class="bio-icon">👤</span>
-                            <div class="bio-label">Nama</div>
-                            <div class="bio-value">TRI NURAENI</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">🎓</span>
-                            <div class="bio-label">Status</div>
-                            <div class="bio-value">Mahasiswa</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">🏛️</span>
-                            <div class="bio-label">Universitas</div>
-                            <div class="bio-value">Universitas Cokroaminoto Palopo</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">📚</span>
-                            <div class="bio-label">Program Studi</div>
-                            <div class="bio-value">Informatika</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">💻</span>
-                            <div class="bio-label">Konsentrasi</div>
-                            <div class="bio-value">Website</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">📅</span>
-                            <div class="bio-label">Angkatan</div>
-                            <div class="bio-value">2024</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">📍</span>
-                            <div class="bio-label">Alamat</div>
-                            <div class="bio-value">
-                                Kelurahan Tomoni, Kecamatan Tomoni,
-                                Kabupaten Luwu Timur
-                            </div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">🍜</span>
-                            <div class="bio-label">Hobi</div>
-                            <div class="bio-value">Makan dan mencoba kuliner</div>
-                        </div>
-
-                        <div class="biodata-row">
-                            <span class="bio-icon">🌱</span>
-                            <div class="bio-label">Motto</div>
-                            <div class="bio-value">Belajar, berkembang, dan berkarya.</div>
-                        </div>
-                    </div>
-
-                    <p class="privacy-note">
-                        Catatan: informasi pribadi yang ditampilkan
-                        dapat disesuaikan dengan kebutuhan tugas.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- MINAT DAN KETERAMPILAN -->
-        <section class="section skills-section" id="keahlian">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">MY INTERESTS</span>
-                    <h2>Minat & <span>Pengembangan Diri</span></h2>
-                    <p>Bidang yang ingin saya pelajari dan kembangkan.</p>
-                </div>
-
-                <div class="skills-grid">
-                    <article class="skill-card">
-                        <div class="skill-icon teal">🌐</div>
-                        <h3>HTML</h3>
-                        <p>
-                            Mempelajari struktur halaman website
-                            agar tersusun dengan baik.
-                        </p>
-                        <span class="skill-tag">Web Fundamental</span>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-icon gold">🎨</div>
-                        <h3>CSS</h3>
-                        <p>
-                            Mengenal desain, warna, layout,
-                            dan tampilan website responsif.
-                        </p>
-                        <span class="skill-tag">Web Design</span>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-icon blue">⚡</div>
-                        <h3>JavaScript</h3>
-                        <p>
-                            Mempelajari interaksi dan fitur
-                            dinamis pada halaman website.
-                        </p>
-                        <span class="skill-tag">Interactivity</span>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-icon pink">🚀</div>
-                        <h3>Hosting Website</h3>
-                        <p>
-                            Memahami cara mengunggah file dan
-                            memublikasikan website ke internet.
-                        </p>
-                        <span class="skill-tag">Web Publishing</span>
-                    </article>
-                </div>
-
-                <p class="skills-disclaimer">
-                    *Bagian ini menunjukkan bidang yang dipelajari
-                    atau diminati, bukan klaim tingkat keahlian profesional.
-                </p>
-            </div>
-        </section>
-
-        <!-- TUJUAN -->
-        <section class="section goal-section" id="tujuan">
-            <div class="container goal-grid">
-
-                <div class="goal-content">
-                    <span class="eyebrow">MY LEARNING GOALS</span>
-
-                    <h2>Belajar Hari Ini,<br><span>Berkarya Esok Hari.</span></h2>
-
-                    <p>
-                        Portofolio ini dibuat sebagai media
-                        perkenalan diri sekaligus latihan praktik
-                        Administrasi Website. Melalui proyek ini,
-                        saya belajar menggabungkan struktur HTML
-                        dengan CSS untuk menghasilkan halaman
-                        yang informatif, menarik, dan responsif.
-                    </p>
-
-                    <p>
-                        Saya juga ingin memahami proses pengelolaan
-                        file website, pengujian tampilan, dan
-                        publikasi melalui layanan hosting.
-                    </p>
-
-                    <a href="#penutup" class="btn btn-primary">
-                        Lihat Kesimpulan ↗
-                    </a>
-                </div>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-number">01</span>
-                        <div>
-                            <h3>Mengenal HTML</h3>
-                            <p>Menyusun elemen dan struktur halaman web.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-number">02</span>
-                        <div>
-                            <h3>Mendesain dengan CSS</h3>
-                            <p>Mengatur warna, tipografi, jarak, dan layout.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-number">03</span>
-                        <div>
-                            <h3>Menguji Website</h3>
-                            <p>Memastikan tautan, foto, dan tampilan berjalan baik.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-number">04</span>
-                        <div>
-                            <h3>Publikasi Website</h3>
-                            <p>Mempelajari pengunggahan file ke layanan hosting.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- PENUTUP -->
-        <section class="section closing-section" id="penutup">
-            <div class="container">
-                <div class="closing-card">
-                    <span class="closing-flower">✿</span>
-
-                    <span class="eyebrow">THANK YOU FOR VISITING</span>
-
-                    <h2>Setiap Langkah Adalah <span>Proses Bertumbuh.</span></h2>
-
-                    <p>
-                        Terima kasih telah mengunjungi website
-                        portofolio saya. Semoga karya sederhana
-                        ini menjadi langkah awal untuk terus
-                        belajar, mengembangkan kreativitas,
-                        dan memahami dunia teknologi informasi.
-                    </p>
-
-                    <a href="#beranda" class="btn btn-light">
-                        ↑ Kembali ke Beranda
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <a href="#beranda" class="footer-logo">MyPortfolio.</a>
+        <p class="photo-caption">That's me! 🌿📸</p>
+    </div>
+</section>
+
+<!-- ABOUT ME -->
+<section id="about">
+    <div class="section-title">
+        <small>🍃 GET TO KNOW ME 🍃</small>
+        <h2>Tentang Aku 🌼</h2>
+        <p>Mengenal Caesar lebih dekat 🦋</p>
+    </div>
+
+    <div class="about-container">
+        <div class="about-art">
+            <div class="big-icon">🌳🐿️</div>
+            <h3>Growing Every Day 🌱</h3>
+            <p>
+                Belajar, mencoba, dan berkembang sedikit demi sedikit.
+                Every little step matters! ✨
+            </p>
+            <div class="sticker">🌷 🍄 🌿</div>
+        </div>
+
+        <div class="about">
+            <h3>Halo, aku Caesar! 👋</h3>
+            <p>
+                Aku mahasiswa <strong>Teknik Informatika</strong>
+                yang sedang mempelajari dunia teknologi. Aku tertarik
+                dengan pemrograman, desain website, dan berbagai hal
+                baru di bidang komputer. 💻
+            </p>
 
             <p>
-                © <span id="currentYear"></span>
-                Portofolio Mahasiswa Informatika.
+                Di luar dunia teknologi, aku suka suasana alam yang
+                tenang dan warna hijau yang memberikan kesan nyaman.
+                Bagiku, belajar itu seperti merawat tanaman: butuh
+                waktu, kesabaran, dan proses untuk terus tumbuh. 🌱
             </p>
 
-            <p class="footer-credit">
-                Made with ♡ and passion for technology.
+            <div class="pills">
+                <span class="pill">🎓 Mahasiswa</span>
+                <span class="pill">💻 Teknologi</span>
+                <span class="pill">🌿 Alam</span>
+                <span class="pill">🎨 Kreativitas</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section class="interests" id="skills">
+    <div class="section-title">
+        <small>✨ MY LEARNING JOURNEY ✨</small>
+        <h2>Yang Sedang Aku Pelajari 🌱</h2>
+        <p>Pelan-pelan belajar, sedikit demi sedikit berkembang.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <span class="decoration">🌟</span>
+            <div class="card-icon">💻</div>
+            <h3>Pemrograman</h3>
+            <p>
+                Belajar memahami logika, menulis kode, dan membuat
+                program sederhana. Sedikit kode, banyak kemungkinan!
             </p>
         </div>
-    </footer>
 
-    <script>
-        // Tahun otomatis pada footer
-        document.getElementById("currentYear").textContent =
-            new Date().getFullYear();
+        <div class="card">
+            <span class="decoration">🍀</span>
+            <div class="card-icon">🌐</div>
+            <h3>HTML & CSS</h3>
+            <p>
+                Membuat halaman website yang menarik, rapi,
+                dan nyaman digunakan.
+            </p>
+        </div>
 
-        // Navigasi untuk perangkat mobile
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+        <div class="card">
+            <span class="decoration">💫</span>
+            <div class="card-icon">🎨</div>
+            <h3>Desain Website</h3>
+            <p>
+                Mempelajari perpaduan warna, tata letak,
+                dan elemen visual agar website lebih estetik.
+            </p>
+        </div>
+    </div>
+</section>
 
-        menuToggle.addEventListener("click", function () {
-            const isOpen = navLinks.classList.toggle("active");
+<!-- HAL YANG DISUKAI -->
+<section class="favorites">
+    <div class="section-title">
+        <small>💚 LITTLE THINGS ABOUT ME</small>
+        <h2>Hal-Hal yang Aku Suka 🌷</h2>
+        <p>Hal sederhana yang bikin hari terasa menyenangkan.</p>
+    </div>
 
-            menuToggle.setAttribute("aria-expanded", isOpen);
-            menuToggle.textContent = isOpen ? "✕" : "☰";
-        });
+    <div class="favorite-row">
+        <div class="favorite-item">
+            <div>🌳</div>
+            <p>Alam</p>
+        </div>
 
-        // Tutup menu setelah tautan dipilih
-        navLinks.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                navLinks.classList.remove("active");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.textContent = "☰";
-            });
-        });
+        <div class="favorite-item">
+            <div>🍃</div>
+            <p>Warna Hijau</p>
+        </div>
 
-        // Animasi ketika elemen masuk ke layar
-        const animatedElements = document.querySelectorAll(".reveal");
+        <div class="favorite-item">
+            <div>💻</div>
+            <p>Teknologi</p>
+        </div>
 
-        if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.12
-            });
+        <div class="favorite-item">
+            <div>🎧</div>
+            <p>Musik</p>
+        </div>
 
-            animatedElements.forEach(function (element) {
-                observer.observe(element);
-            });
-        } else {
-            animatedElements.forEach(function (element) {
-                element.classList.add("visible");
-            });
-        }
-    </script>
+        <div class="favorite-item">
+            <div>🌅</div>
+            <p>Pemandangan</p>
+        </div>
+
+        <div class="favorite-item">
+            <div>🐱</div>
+            <p>Kucing</p>
+        </div>
+    </div>
+</section>
+
+<!-- TUJUAN -->
+<section class="goals" id="goals">
+    <div class="section-title">
+        <small>🌲 MY GOALS 🌲</small>
+        <h2>Perjalanan dan Tujuanku</h2>
+        <p>Semua hal besar dimulai dari langkah kecil. 🌱</p>
+    </div>
+
+    <div class="goal-box">
+        <div class="goal-icon">🌳✨</div>
+        <h3>Keep Growing, Keep Learning</h3>
+        <p>
+            Aku ingin terus berkembang sebagai mahasiswa Teknik
+            Informatika, menambah pengalaman dalam pemrograman,
+            dan suatu hari bisa membuat website serta aplikasi sendiri.
+            Portofolio ini menjadi salah satu langkah kecilku
+            dalam proses belajar. 🌿
+        </p>
+        <br>
+        <p>🌱 Dream it. 🌻 Learn it. 🌳 Build it. 💚</p>
+    </div>
+</section>
+
+<!-- KONTAK -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <small>💌 SAY HELLO 💌</small>
+        <h2>Makasih Sudah Mampir! 💚</h2>
+        <p>
+            Senang kamu sudah berkunjung ke portofolioku.
+            Semoga harimu menyenangkan! 🌷🦋
+        </p>
+    </div>
+
+    <div class="contact-cards">
+        <div class="contact-item">
+            <span>📧</span>Email
+        </div>
+
+        <div class="contact-item">
+            <span>📸</span>Instagram
+        </div>
+
+        <div class="contact-item">
+            <span>💻</span>GitHub
+        </div>
+
+        <div class="contact-item">
+            <span>🌍</span>Indonesia
+        </div>
+    </div>
+
+    <p>“Good things take time.” 🌱💫</p>
+    <a href="#home" class="button">Kembali ke Atas ↑ 🍃</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 <span>Caesar</span> |
+        Made with 💚 and a little bit of code. 🌿✨
+    </p>
+</footer>
 
 </body>
 </html>
